@@ -1,9 +1,11 @@
-import React, { useRef } from "react";
+import React, { useRef, useContext } from "react";
 
+import { TodosContext } from '../store/todos-context';
 import classes from './NewTodo.module.css';
 
-// defines that the props type expected is a function with one argument
-const NewTodo: React.FC<{ onAddTodo: (text: string) => void }> = (props) => {
+const NewTodo: React.FC = () => {
+	const todosCtx = useContext(TodosContext);
+
 	// defines the expected type on the ref, with initial value defined as null
 	const todoTextInputRef = useRef<HTMLInputElement>(null);
 
@@ -17,8 +19,8 @@ const NewTodo: React.FC<{ onAddTodo: (text: string) => void }> = (props) => {
 			return;
 		}
 
-		// passes the ref text to the function found in App.tsx
-		props.onAddTodo(enteredText);
+		// passes the ref text to the function found in the todo store
+		todosCtx.addTodo(enteredText);
 	};
 
 	return (
