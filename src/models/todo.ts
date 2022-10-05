@@ -1,4 +1,4 @@
-// the Todo object definition 
+// the Todo object definition
 
 class Todo {
     id: string;

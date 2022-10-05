@@ -7,13 +7,13 @@ import Todo from "../models/todo";
 // then defines the generic type field of this type
 // as an object with a key of items that expects an array with the structure defined in the todo.ts model
 const Todos: React.FC<{ items: Todo[] }> = (props) => {
-  return (
-    <ul>
-      {props.items.map((item) => (
-        <TodoItem key={item.id} text={item.text}/>
-      ))}
-    </ul>
-  );
+    return (
+        <ul>
+            {props.items.map((item) => (
+                <TodoItem key={item.id} text={item.text} />
+            ))}
+        </ul>
+    );
 };
 
 export default Todos;
